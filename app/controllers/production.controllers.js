@@ -115,3 +115,12 @@ exports.getmysql=(req,res)=>{
     res.status(200).send(result)
   })
 }
+exports.getimg=(req,res)=>{
+  sql.query(`SELECT * FROM production WHERE id=${req.params.getimg}`,function(err,result,fields){
+    if(err)throw err
+    sql.query(`SELECT * FROM imgproduct WHERE imgsrc1='${result[0].img}'`,function(err1,result1,fields){
+      if(err1)throw err1
+      res.status(200).send(result1)
+    })
+  })
+}

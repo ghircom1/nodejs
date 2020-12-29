@@ -6,4 +6,5 @@ module.exports = app => {
     app.get("/api/submit/production/:customerId", production.findOne);
     app.put('/api/submit/production/:productionId',production.update);
     app.get("/api/getting/production",production.getmysql)
+    app.get('/api/getting/production/:getimg',production.getimg)
   };
